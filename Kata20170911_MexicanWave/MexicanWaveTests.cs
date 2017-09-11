@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Kata20170911_MexicanWave
@@ -12,6 +13,12 @@ namespace Kata20170911_MexicanWave
         public void input_empyt_should_return_empty_list()
         {
             StringWaveShouldBe(new List<string>(), "");
+        }
+
+        [TestMethod]
+        public void input_ab_should_return_Ab_aB()
+        {
+            StringWaveShouldBe(new List<string>{ "Ab", "aB" }, "ab");
         }
 
         private static void StringWaveShouldBe(List<string> expected, string str)
@@ -26,7 +33,9 @@ namespace Kata20170911_MexicanWave
     {
         public List<string> wave(string str)
         {
-            return new List<string>();
+            return Enumerable.Range(0, str.Length)
+                .Select(i => string.Concat(str.Select((c, idx) => i == idx ? char.ToUpper(c) : c)))
+                .ToList();
         }
     }
 }
