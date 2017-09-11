@@ -21,6 +21,12 @@ namespace Kata20170911_MexicanWave
             StringWaveShouldBe(new List<string>{ "Ab", "aB" }, "ab");
         }
 
+        [TestMethod]
+        public void input_hello_should_return_Hello_hEllo_heLlo_helLo_hellO()
+        {
+            StringWaveShouldBe(new List<string> { "Hello", "hEllo", "heLlo", "helLo", "hellO" }, "hello");
+        }
+
         private static void StringWaveShouldBe(List<string> expected, string str)
         {
             var kata = new Kata();
