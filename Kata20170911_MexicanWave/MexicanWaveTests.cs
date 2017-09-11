@@ -27,6 +27,12 @@ namespace Kata20170911_MexicanWave
             StringWaveShouldBe(new List<string> { "Hello", "hEllo", "heLlo", "helLo", "hellO" }, "hello");
         }
 
+        [TestMethod]
+        public void input_two_wo()
+        {
+            StringWaveShouldBe(new List<string> { "Two wo", "tWo wo", "twO wo", "two Wo", "two wO" }, "two wo");
+        }
+
         private static void StringWaveShouldBe(List<string> expected, string str)
         {
             var kata = new Kata();
@@ -41,6 +47,7 @@ namespace Kata20170911_MexicanWave
         {
             return Enumerable.Range(0, str.Length)
                 .Select(i => string.Concat(str.Select((c, idx) => i == idx ? char.ToUpper(c) : c)))
+                .Where(s => s != str)
                 .ToList();
         }
     }
