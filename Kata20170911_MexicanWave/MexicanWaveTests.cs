@@ -33,6 +33,12 @@ namespace Kata20170911_MexicanWave
             StringWaveShouldBe(new List<string> { "Two wo", "tWo wo", "twO wo", "two Wo", "two wO" }, "two wo");
         }
 
+        [TestMethod]
+        public void input__gap_()
+        {
+            StringWaveShouldBe(new List<string> { " Gap ", " gAp ", " gaP " }, " gap ");
+        }
+
         private static void StringWaveShouldBe(List<string> expected, string str)
         {
             var kata = new Kata();
